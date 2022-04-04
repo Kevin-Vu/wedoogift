@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="seq_01_add_user_sequence" author="kvu">
+        <createSequence sequenceName="user_sequence" cycle="false" minValue="1" maxValue="9223372036854775807" startValue="1" incrementBy="1"/>
+    </changeSet>
+
+    <changeSet id="seq_02_add_deposit_sequence" author="kvu">
+        <createSequence sequenceName="deposit_sequence" cycle="false" minValue="1" maxValue="9223372036854775807" startValue="1" incrementBy="1"/>
+    </changeSet>
+
+    <changeSet id="seq_03_add_company_sequence" author="kvu">
+        <createSequence sequenceName="company_sequence" cycle="false" minValue="1" maxValue="9223372036854775807" startValue="1" incrementBy="1"/>
+    </changeSet>
+
+    <changeSet id="seq_04_add_balance_sequence" author="kvu">
+        <createSequence sequenceName="balance_sequence" cycle="false" minValue="1" maxValue="9223372036854775807" startValue="1" incrementBy="1"/>
+    </changeSet>
+
+    <changeSet id="seq_05_add_payment_sequence" author="kvu">
+        <createSequence sequenceName="payment_sequence" cycle="false" minValue="1" maxValue="9223372036854775807" startValue="1" incrementBy="1"/>
+    </changeSet>
+
+</databaseChangeLog>

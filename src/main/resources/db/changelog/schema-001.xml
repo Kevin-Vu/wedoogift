@@ -1,0 +1,86 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="s001_01_balance" author="kvu">
+        <createTable tableName="balance" >
+            <column name="blc_id" type="INT" defaultValueComputed="nextval('balance_sequence')">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="blc_code" type="VARCHAR(100)">
+                <constraints unique="true"/>
+            </column>
+            <column name="blc_amount" type="DECIMAL(15,2)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="s001_02_user" author="kvu">
+        <createTable tableName="user_challenge" >
+            <column name="usr_id" type="INT" defaultValueComputed="nextval('user_sequence')">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="usr_firstname" type="VARCHAR(40)"/>
+            <column name="usr_lastname" type="VARCHAR(40)"/>
+            <column name="usr_email" type="VARCHAR(40)">
+                <constraints unique="true"/>
+            </column>
+            <column name="usr_ptr_gift_balance_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_usr_blc_gift" references="balance(blc_id)"/>
+            </column>
+            <column name="usr_ptr_meal_balance_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_usr_blc_meal" references="balance(blc_id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="s001_03_company" author="kvu">
+        <createTable tableName="company" >
+            <column name="cpn_id" type="INT" defaultValueComputed="nextval('company_sequence')">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="cpn_public_name" type="VARCHAR(100)"/>
+            <column name="cpn_corporate_name" type="VARCHAR(100)">
+                <constraints unique="true"/>
+            </column>
+            <column name="cpn_ptr_balance_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_cpn_blc" references="balance(blc_id)"/>
+            </column>
+            <column name="cpn_siren" type="VARCHAR(100)"/>
+            <column name="cpn_siret" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="s001_04_deposit" author="kvu">
+        <createTable tableName="deposit" >
+            <column name="dps_id" type="INT" defaultValueComputed="nextval('deposit_sequence')">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="dps_amount" type="DECIMAL(15,2)"/>
+            <column name="dps_remaining_amount" type="DECIMAL(15,2)"/>
+            <column name="dps_begin_date" type="TIMESTAMP"/>
+            <column name="dps_end_date" type="TIMESTAMP"/>
+            <column name="dps_type" type="VARCHAR(100)"/>
+            <column name="dps_ptr_user_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_dps_usr" references="user_challenge(usr_id)"/>
+            </column>
+            <column name="dps_ptr_company_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_dps_cpn" references="company(cpn_id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="s001_05_payment" author="kvu">
+        <createTable tableName="payment" >
+            <column name="pay_id" type="INT" defaultValueComputed="nextval('payment_sequence')">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="pay_amount" type="DECIMAL(15,2)"/>
+            <column name="pay_receiver" type="VARCHAR(60)"/>
+            <column name="pay_object" type="VARCHAR(60)"/>
+            <column name="pay_ptr_user_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_pay_usr" references="user_challenge(usr_id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
