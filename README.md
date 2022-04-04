@@ -31,9 +31,9 @@ or use the **swagger.json** file at https://editor.swagger.io
 - Add hibernate envers
 - Add Mapstruct
 
-## Explaination of the program
+## Explanation of the program
 
-Please consider looking the code.
+**Please consider looking the code**
 
 ### Deposit
 A company can create deposits and through the DepositController, but when they do that
