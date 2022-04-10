@@ -1,5 +1,6 @@
 [comment]: <> "[![CircleCI](https://circleci.com/gh/Kevin-Vu/okayo-facture.svg?style=svg)](https://circleci.com/gh/Kevin-Vu/okayo-facture)"
 ![Version](https://img.shields.io/badge/version-0.0.1b-blue)
+[![CircleCI](https://circleci.com/gh/Kevin-Vu/wedoogift/tree/main.svg?style=svg)](https://circleci.com/gh/Kevin-Vu/wedoogift/tree/main)
 # Challenge Wedoogift
 
 Application to manage, create payment and deposit for Wedoogift's customers.
