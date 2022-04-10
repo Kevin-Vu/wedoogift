@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/78c0e71457bc489399cd411de70268ba)](https://app.codacy.com/gh/Kevin-Vu/wedoogift?utm_source=github.com&utm_medium=referral&utm_content=Kevin-Vu/wedoogift&utm_campaign=Badge_Grade_Settings)
 [comment]: <> "[![CircleCI](https://circleci.com/gh/Kevin-Vu/okayo-facture.svg?style=svg)](https://circleci.com/gh/Kevin-Vu/okayo-facture)"
 ![Version](https://img.shields.io/badge/version-0.0.1b-blue)
 [![CircleCI](https://circleci.com/gh/Kevin-Vu/wedoogift/tree/main.svg?style=svg)](https://circleci.com/gh/Kevin-Vu/wedoogift/tree/main)
